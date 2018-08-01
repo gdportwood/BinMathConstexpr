@@ -47,3 +47,8 @@ inline constexpr T NAbs(const T val)
   return ( val>-val ) ? val : -val;
 }
 
+template<typename T>
+inline constexpr T NSqrt(T arg, T ans = 1.0, const T err = 1e-10)
+{
+  return ((ans*ans-arg)*(ans*ans-arg)/(arg*arg) < err*err) ? ans : sqrt_ct_0(arg,ans-(ans*ans-arg)/(2*ans),err);
+}
